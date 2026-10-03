@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: digitaltwin-ai-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+
+  - type: web
+    name: digitaltwin-ai-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    plan: free

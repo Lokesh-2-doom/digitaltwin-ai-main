@@ -1,0 +1,1 @@
+console.log("Literal here-strings work with backticks 2 perfectly!");
